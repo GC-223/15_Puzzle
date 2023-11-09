@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		966317F72AFDA73400F98F78 /* Tile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966317F52AFDA73400F98F78 /* Tile.cpp */; };
+		966317FA2AFDA78300F98F78 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966317F82AFDA78300F98F78 /* Board.cpp */; };
 		9686DAF42AFC88E0007C9F30 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9686DAF32AFC88E0007C9F30 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		966317F52AFDA73400F98F78 /* Tile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tile.cpp; sourceTree = "<group>"; };
+		966317F62AFDA73400F98F78 /* Tile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tile.hpp; sourceTree = "<group>"; };
+		966317F82AFDA78300F98F78 /* Board.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Board.cpp; sourceTree = "<group>"; };
+		966317F92AFDA78300F98F78 /* Board.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Board.hpp; sourceTree = "<group>"; };
 		9686DAF02AFC88E0007C9F30 /* 15_Puzzle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 15_Puzzle; sourceTree = BUILT_PRODUCTS_DIR; };
 		9686DAF32AFC88E0007C9F30 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9686DAFA2AFC89BE007C9F30 /* Initial Thoughts */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Initial Thoughts"; sourceTree = "<group>"; };
@@ -59,6 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				9686DAF32AFC88E0007C9F30 /* main.cpp */,
+				966317F82AFDA78300F98F78 /* Board.cpp */,
+				966317F92AFDA78300F98F78 /* Board.hpp */,
+				966317F52AFDA73400F98F78 /* Tile.cpp */,
+				966317F62AFDA73400F98F78 /* Tile.hpp */,
 				9686DAFA2AFC89BE007C9F30 /* Initial Thoughts */,
 			);
 			path = 15_Puzzle;
@@ -121,7 +131,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				966317FA2AFDA78300F98F78 /* Board.cpp in Sources */,
 				9686DAF42AFC88E0007C9F30 /* main.cpp in Sources */,
+				966317F72AFDA73400F98F78 /* Tile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
