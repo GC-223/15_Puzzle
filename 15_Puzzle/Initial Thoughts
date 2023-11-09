@@ -1,0 +1,101 @@
+
+planning our program - get the high level structure of our program
+
+Board Things -
+    
+    display board as a 4 x 4 grid
+    
+        each element wil be a number from 1 - 15
+        one blank element
+
+    a function to randomize the layout of the board
+
+    a function to check if the board is in the correct order
+        if in order - then you win
+
+
+    display the board
+
+
+    move the tiles after use has inputted command
+
+
+User Things -
+
+    get command from user
+
+    w - move blank down
+    a - move blank right
+    s - move blank left
+    d - move blank up
+
+    q - quit game
+
+
+    handle invalid input
+
+
+
+
+classes / namespaces
+
+class Board -
+    m_2dArray - perhaps the elements are a separate class?
+              - or the elements could just be ints
+
+    
+    member functions -
+        display the board
+        handle sliding the tiles
+        check win condition
+
+
+class Tile
+    an integer member
+    member function to display a tile
+
+
+
+maybe a namespace for UserInput
+    get the commands from the user
+    handle invalid input
+        if invalid input then don't do anything
+        or we could tell the user "invalid! please enter valid input"
+
+
+
+function main
+    create board yada yada yada
+
+main game loop
+    print board
+
+    get move input
+
+    if moveInput == quit
+        quit
+
+    if moveInput is valid
+        update board with whatever move was chosen
+
+    check win condition
+        if win then print congratulations
+
+    otherwise loop again
+
+
+
+
+we should always track the coordinates of the blank space
+    that way we don't have to loop through the entire 2d array every time we want to move
+    
+    we can just track coordinates and make moves based on that
+
+so perhaps a helper class to track the blank coordinate
+    this will an x and y index pair
+    makes it easy to pass/return a pair of indices
+
+and then maybe a helper class to work with direction
+    w = up; a = left
+    we can put things in the form Direction::left instead of 'a'
+
