@@ -5,8 +5,10 @@
 //  Created by Greyson Chavez on 11/8/23.
 //
 
+#include <cassert>
 #include <iostream>
 #include "Board.hpp"
+#include "DirectionClass.hpp"
 #include "Tile.hpp"
 
 
@@ -46,8 +48,29 @@ namespace UserInput
         
         return userInput ;
     }
+
+
+    // we want a function that will be able to convert a userInput into a direction
+    Direction convertToDirection( char userInput )
+    {
+        switch ( userInput ) {
+            case 'w':
+                return Direction { Direction::up } ;
+            case 'a':
+                return Direction { Direction::left } ;
+            case 's':
+                return Direction { Direction::down } ;
+            case 'd':
+                return Direction { Direction::right } ;
+            default:
+                std::cout << "Invalid Input Entered" ;
+                return Direction { Direction::up } ;
+        }
+    }
     
 }
+
+
 
 
 int main(int argc, const char * argv[]) 
@@ -70,13 +93,16 @@ int main(int argc, const char * argv[])
     {
         char input { UserInput::getUserInput() } ;
         
+        
         if ( input == 'q' )
         {
             std::cout << "Goodbye!\n" ;
             break ;
         }
         
-        std::cout << "Valid Command: " << input << '\n' ;
+        Direction inputDirection { UserInput::convertToDirection( input ) } ;
+
+        std::cout << "You entered direction: " << inputDirection << '\n' ;
     }
     
     return 0;
