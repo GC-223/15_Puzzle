@@ -30,7 +30,11 @@ public:
     // constructor
     Direction( DirectionType type ) : m_direction { type } { }
     
-    
+    // getter
+    DirectionType getDirectionType() const
+    {
+        return m_direction ;
+    }
     
     // overload unary operator- to return the opposite direction
     Direction operator-() const ;

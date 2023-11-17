@@ -8,7 +8,7 @@
 #include "DirectionClass.hpp"
 
 // overload unary operator- to return the opposite direction
-Direction Direction::operator-()
+Direction Direction::operator-() const
 {
     switch (m_direction) {
         case up:

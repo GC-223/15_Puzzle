@@ -11,6 +11,47 @@
 #include "DirectionClass.hpp"
 #include "Tile.hpp"
 
+// ok so now we want a class to treat cells on the board as coordinates
+// because we want to be able to access these coords it should probably be a struct
+struct Point
+{
+    int m_x ;
+    int m_y ;
+    
+    
+    // lets also have a function that gets the point next to a certain point
+    // based on a direction
+    Point getAdjacentPoint ( Direction d )
+    {
+        switch (d.getDirectionType()) {
+            case Direction::up:
+                return Point { m_x, --m_y } ;
+            case Direction::down:
+                return Point { m_x, ++m_y } ;
+            case Direction::left:
+                return Point { --m_x, m_y } ;
+            case Direction::right:
+                return Point { ++m_x, m_y } ;
+            default:
+                std::cout << "Invalid Direction Entered\n" ;
+                return Point { m_x, m_y } ;
+        }
+        
+    }
+    
+    // lets overload equality operators to compare two points
+    friend bool operator==( const Point& p1, const Point& p2 )
+    {
+        return ( p1.m_x == p2.m_x ) && ( p1.m_y == p2.m_y ) ;
+    }
+    
+    friend bool operator!=( const Point& p1, const Point& p2 )
+    {
+        return !( p1 == p2 ) ;
+    }
+
+} ;
+
 
 // lets use a namespace to handle user input
 namespace UserInput
@@ -104,6 +145,9 @@ int main(int argc, const char * argv[])
 
         std::cout << "You entered direction: " << inputDirection << '\n' ;
     }
+    
+    
+    
     
     return 0;
 }
