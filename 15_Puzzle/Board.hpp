@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include "Tile.hpp"
+#include "PointStruct.hpp"
 
 
 // board class
@@ -63,6 +64,74 @@ public:
     // ok so now we want the function to print the board
     // i guess we want to overload the output operator
     friend std::ostream& operator<<( std::ostream& out, const Board& b ) ;
+    
+    
+    // ok so we finally have everything we need to be able to move a tile on the board
+    // to move a tile
+    // first locate the blank tile
+    
+    // separate function to get blank tile coordinates
+    Point getBlankCoords()
+    {
+        // loop through the entire board
+        
+        // loop through rows (y) coord
+        for ( int y = 0 ; y < SIZE ; ++y )
+        {
+            // cols (x) coord
+            for ( int x = 0 ; x < SIZE ; ++x )
+            {
+                if ( m_board[y][x].isEmpty() )
+                {
+                    // coords of blank tile
+                    return Point { x, y } ;
+                }
+            }
+        }
+        // blank tile not found
+        return Point { -1, -1 } ;
+    }
+    
+        // get coordinates of blank tile
+    
+    
+
+    
+    // do error handling with valid/invalid inputs
+    // return true if valid point
+    bool validPoint( Point p )
+    {
+        return ( p.m_x >= 0 && p.m_x < SIZE ) && ( p.m_y >= 0 && p.m_y < SIZE ) ;
+    }
+    
+    // swap the tiles
+    void swap( Point blankPoint, Point adjacentPoint )
+    {
+        Tile tempTile { m_board[ blankPoint.m_y ][ blankPoint.m_x ] } ;
+        
+        m_board[ blankPoint.m_y ][ blankPoint.m_x ] = m_board[ adjacentPoint.m_y ][ adjacentPoint.m_x ] ;
+        
+        m_board[ adjacentPoint.m_y ][ adjacentPoint.m_x ] = tempTile ;
+    }
+    
+    bool moveTile( Direction moveDirection )
+    {
+        // coords of blankTile
+        Point blankPoint { getBlankCoords() } ;
+        
+        // now find the coordinates of the tile that is adjacent to (opposite input direction) of blank tile
+        Point adjacentPoint { blankPoint.getAdjacentPoint( -moveDirection ) } ;
+        
+        if ( !validPoint( adjacentPoint ) )
+        {
+            return false ;
+        }
+        
+        swap( blankPoint, adjacentPoint ) ;
+        
+        return true ;
+        
+    }
     
 } ;
 
